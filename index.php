@@ -14,7 +14,7 @@
 
         <main>
             <form action="upload.php" enctype="multipart/form-data" method="POST">
-                <label for="arq">Please, insert your file</label>
+                <label for="f">Please, insert your file</label>
                 <input type="file" name="f" id="file" title="Type's .MP3 .WAV">
 
                 <button type="submit">Done</button>
