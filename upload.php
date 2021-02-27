@@ -11,13 +11,14 @@
                     if(move_uploaded_file($tmp,__DIR__."/FILES/{$name}.".$ext)) {
                         echo "Success";
                     } else {
-                        echo "Something is wrong";
+                        throw new Exception("Something is wrong with your upload!<br> Please try again!",500);
                     }
                 } else {
-                    echo "Invalid format, you can upload MP3 or WAV files";
+                    throw new Exception("Invalid file format, you can upload MP3 and WAV file's", 415);
+                    
                 }
             } catch (Exception $e) {
-                echo "Something is wrong {$e->getCode()}";
+                echo "Error {$e->getCode()}<br> {$e->getMessage()}";
             }
         } 
     }
