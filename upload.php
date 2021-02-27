@@ -7,10 +7,14 @@
             $ext = pathinfo($name,PATHINFO_EXTENSION);
 
             try {
-                if(move_uploaded_file($tmp,__DIR__."/FILES/arch1teste.".$ext)) {
-                    echo "Arquivo inserido com sucesso";
+                if($ext == 'mp3' || $ext == 'wav') {
+                    if(move_uploaded_file($tmp,__DIR__."/FILES/{$name}.".$ext)) {
+                        echo "Success";
+                    } else {
+                        echo "Something is wrong";
+                    }
                 } else {
-                    echo "Algo deu errado na inserção de seu arquivo";
+                    echo "Invalid format, you can upload MP3 or WAV files";
                 }
             } catch (Exception $e) {
                 echo "Something is wrong {$e->getCode()}";
